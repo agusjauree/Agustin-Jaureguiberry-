@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Lista de libros {% endblock %}
+
+{% block contendio %}
+
+
+<div class="card">
+    <div class="card-header">
+        Listar libros
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">libros</h4>
+       
+        
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>titulo</th>
+                    <th>Imagen</th>
+                    <th>Descripcion</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Django con pyhton</td>
+                    <td>Imagen.jpg</td>
+                    <td>Libros que habla sobre django</td>
+                    <td>Editar | Borrar </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+       
+        
+        
+
+    </div>
+    <div class="card-footer text-muted">Footer</div>
+</div>
+
+
+{% endblock %}
