@@ -1,47 +1,31 @@
 {% extends 'base.html' %}
 
-{% block titulo %} Lista de libros {% endblock %}
+{% block titulo %}Libros{% endblock %}
 
-{% block contendio %}
-
-
-<div class="card">
-    <div class="card-header">
-        Listar libros
-    </div>
-    <div class="card-body">
-        <h4 class="card-title">libros</h4>
-       
-        
-        
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>titulo</th>
-                    <th>Imagen</th>
-                    <th>Descripcion</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Django con pyhton</td>
-                    <td>Imagen.jpg</td>
-                    <td>Libros que habla sobre django</td>
-                    <td>Editar | Borrar </td>
-                    
-                </tr>
-            </tbody>
-        </table>
-       
-        
-        
-
-    </div>
-    <div class="card-footer text-muted">Footer</div>
-</div>
-
-
+{% block contenido %}
+<h1>Libros</h1>
+<a href="{% url 'crear' %}" class="btn btn-success mb-3">Añadir nuevo libro</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Autor</th>
+      <th>Fecha de Publicación</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for libro in libros %}
+    <tr>
+      <td>{{ libro.titulo }}</td>
+      <td>{{ libro.autor }}</td>
+      <td>{{ libro.fecha_publicacion }}</td>
+      <td>
+        <a href="{% url 'editar' libro.id %}" class="btn btn-warning">Editar</a>
+        <a href="{% url 'eliminar' libro.id %}" class="btn btn-danger">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
